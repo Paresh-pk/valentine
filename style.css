@@ -1,0 +1,50 @@
+/* Custom Styles */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Background floating hearts animation */
+.heart-particle {
+    position: absolute;
+    color: var(--color-brand-pink, #ffccd5);
+    opacity: 0.6;
+    animation: floatUp linear infinite;
+    user-select: none;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Success Overlay Animation */
+.success-visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.success-visible #success-content {
+    transform: scale(1) !important;
+}
+
+/* Mobile button positioning utility */
+@media (max-width: 640px) {
+    #no-btn {
+        position: relative !important; /* Start relative */
+    }
+    #no-btn.running {
+        position: absolute !important; /* Switch to absolute when running */
+    }
+}

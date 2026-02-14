@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inter:wght@400;600;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            pink: '#ffccd5',
+                            rose: '#ff9aa2',
+                            red: '#c9184a',
+                            dark: '#590d22',
+                            light: '#fff0f3'
+                        }
+                    },
+                    fontFamily: {
+                        handwriting: ['"Indie Flower"', 'cursive'],
+                        heading: ['"Pacifico"', 'cursive'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body class="bg-brand-light text-brand-dark overflow-x-hidden relative min-h-screen flex flex-col">
+
+    <!-- Floating Background Elements (Generated via JS) -->
+    <div id="background-effects" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center justify-center p-4 relative z-10">
+
+        <!-- Hero Section -->
+        <div id="hero" class="text-center max-w-2xl mx-auto space-y-6 animate-fade-in-up">
+            <div class="mb-4 inline-block">
+                <i data-lucide="heart" class="w-16 h-16 text-brand-red animate-pulse-slow mx-auto fill-brand-red"></i>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-heading text-brand-red drop-shadow-sm">
+                Hey Beautiful...
+            </h1>
+
+            <p class="text-xl md:text-2xl font-handwriting text-brand-dark/80 mt-4 leading-relaxed">
+                I've been meaning to ask you something important...
+            </p>
+        </div>
+
+        <!-- Invitation Card -->
+        <div id="invitation-card"
+            class="mt-12 bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl w-full max-w-md border-2 border-brand-pink/50 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+            <div class="text-center space-y-8">
+                <div class="space-y-2">
+                    <h2 class="text-3xl font-heading text-brand-dark">Will you be my Valentine?</h2>
+                    <p class="text-brand-dark/60 font-sans text-sm">Please say yes! 🌹</p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center h-24 relative">
+                    <button id="yes-btn"
+                        class="px-8 py-3 bg-brand-red text-white text-lg font-bold rounded-full shadow-lg transform transition hover:scale-110 hover:bg-brand-dark focus:outline-none focus:ring-4 focus:ring-brand-pink active:scale-95 w-full sm:w-auto">
+                        YES! ❤️
+                    </button>
+
+                    <button id="no-btn"
+                        class="px-8 py-3 bg-gray-200 text-gray-500 text-lg font-bold rounded-full shadow-inner hover:bg-gray-300 focus:outline-none w-full sm:w-auto transition-all absolute sm:static">
+                        No 😢
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Message (Hidden initially) -->
+        <div id="success-overlay"
+            class="fixed inset-0 bg-brand-dark/95 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-1000 overflow-y-auto">
+            <div class="text-center p-8 text-white space-y-8 w-full max-w-4xl" id="success-content">
+
+                <h1 class="text-5xl md:text-7xl font-heading text-brand-pink mb-4 animate-bounce">YAY! 💖</h1>
+
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                    <div
+                        class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 transform hover:scale-105 transition duration-500">
+                        <img src="gallery-1.png" alt="Our Memory 1" class="w-full h-64 object-cover">
+                    </div>
+                    <div
+                        class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 transform hover:scale-105 transition duration-500 md:translate-y-4">
+                        <img src="gallery-2.png" alt="Our Memory 2" class="w-full h-64 object-cover">
+                    </div>
+                    <div
+                        class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 transform hover:scale-105 transition duration-500">
+                        <img src="gallery-3.png" alt="Our Memory 3" class="w-full h-64 object-cover">
+                    </div>
+                    <div
+                        class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 transform hover:scale-105 transition duration-500 md:translate-y-4">
+                        <img src="gallery-4.png" alt="Our Memory 4" class="w-full h-64 object-cover">
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 max-w-2xl mx-auto">
+                    <p class="text-2xl md:text-3xl font-handwriting leading-relaxed text-brand-pink">
+                        "I was yours, I am yours, and I’ll be yours—through every heartbeat, every lifetime."
+                    </p>
+                </div>
+
+                <div class="flex justify-center gap-4 mt-8">
+                    <button onclick="location.reload()"
+                        class="px-6 py-2 border-2 border-white/30 rounded-full hover:bg-white/10 transition flex items-center gap-2">
+                        <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Replay
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Music Control (Optional) -->
+    <div class="fixed bottom-4 right-4 z-40">
+        <button id="music-toggle"
+            class="bg-white/90 p-3 rounded-full shadow-lg text-brand-red hover:bg-brand-pink hover:text-white transition-all">
+            <i data-lucide="music" class="w-6 h-6"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
